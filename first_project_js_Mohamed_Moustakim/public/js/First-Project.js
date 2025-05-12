@@ -133,24 +133,24 @@ function signup() {
 
 
 // // step4 : create conditions of log in
-// function login() {
-//     let email = prompt("Enter your email:").trim().toLowerCase();
+function login() {
+    let email = prompt("Enter your email:").trim().toLowerCase();
 
-//     const user = userDataBase.find(user => user.email === email);
-//     if (!user) {
-//         alert("Email not found.");
-//         return;
-//     }
+    const user = userDataBase.find(user => user.email === email);
+    if (!user) {
+        alert("Email not found.");
+        return;
+    }
 
-//     let password = prompt("Enter your password:").trim();
-//     if (user.password !== password) {
-//         alert("Incorrect password.");
-//         return;
-//     }
+    let password = prompt("Enter your password:").trim();
+    if (user.password !== password) {
+        alert("Incorrect password.");
+        return;
+    }
 
-//     userAccount = user;
-//     alert(`Login successful! Welcome, ${user.name}.`);
-// }
+    userAccount = user;
+    alert(`Login successful! Welcome, ${user.name}.`);
+}
 // step5 : create conditions changed password
 
 
