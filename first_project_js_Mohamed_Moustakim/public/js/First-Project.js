@@ -186,31 +186,31 @@ function changePassword() {
 
 
 
-// function dataChoose() {
-//     while (true) {
-//         let action = prompt("Choose: signup / login / change-password / exit").trim().toLowerCase();
+function dataChoose() {
+    while (true) {
+        let action = prompt("Choose: signup / login / change-password / exit").trim().toLowerCase();
 
-//         if (action === "signup") {
-//             alert("please fill the sign up form.");
-//             signup();
+        if (action === "signup") {
+            alert("please fill the sign up form.");
+            signup();
 
-//         } else if (action === "login") {
-//             alert("Login selected.");
-//             login()
-//         } else if (action === "change-password") {
-//             alert("Change password selected.");
-//             changePassword()
-//         } else if (action === "exit") {
-//             alert("Exiting...");
-//             break;
+        } else if (action === "login") {
+            alert("Login selected.");
+            login()
+        } else if (action === "change-password") {
+            alert("Change password selected.");
+            changePassword()
+        } else if (action === "exit") {
+            alert("Exiting...");
+            break;
 
-//         } else {
-//             alert("Invalid option.");
-//         }
-//     }
-// }
+        } else {
+            alert("Invalid option.");
+        }
+    }
+}
 
-// dataChoose();
+dataChoose();
 // step5 : After the user logs in, display the amount they have in their bank (user's choice) and offer them services:
 //             # Logout:
 //             - If the user chooses this option, they are logged out and offered the option, as at the beginning, to sign up, log in, or change the password.
