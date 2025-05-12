@@ -94,42 +94,42 @@ function isValidPassword(password) {
     return true;
 }
 
-// function signup() {
-//     let name = prompt("Enter your full name (e.g. Amhana Amine):").trim();
-//     if (!isValidName(name)) {
-//         alert("Invalid name. Use capital letters, no special characters, and at least 5 characters.");
-//         return;
-//     }
-//     name = name.split(" ").map(capitalize).join(" ");
+function signup() {
+    let name = prompt("Enter your full name (e.g. Amhana Amine):").trim();
+    if (!isValidName(name)) {
+        alert("Invalid name. Use capital letters, no special characters, and at least 5 characters.");
+        return;
+    }
+    name = name.split(" ").map(capitalize).join(" ");
 
-//     let email = prompt("Enter your email address:").trim().toLowerCase();
-//     if (!isValidEmail(email)) {
-//         alert("Invalid or already used email. Must contain '@', no spaces, and be unique.");
-//         return;
-//     }
+    let email = prompt("Enter your email address:").trim().toLowerCase();
+    if (!isValidEmail(email)) {
+        alert("Invalid or already used email. Must contain '@', no spaces, and be unique.");
+        return;
+    }
 
-//     let age = prompt("Enter your age:").trim();
-//     if (!isValidAge(age)) {
-//         alert("Invalid age. Must be digits only and between 1-99.");
-//         return;
-//     }
+    let age = prompt("Enter your age:").trim();
+    if (!isValidAge(age)) {
+        alert("Invalid age. Must be digits only and between 1-99.");
+        return;
+    }
 
-//     let password = prompt("Create a password:").trim();
-//     if (!isValidPassword(password)) {
-//         alert("Invalid password. Must be at least 7 characters, no spaces, and contain at least one special character (@, #, -, +, *, /).");
-//         return;
-//     }
+    let password = prompt("Create a password:").trim();
+    if (!isValidPassword(password)) {
+        alert("Invalid password. Must be at least 7 characters, no spaces, and contain at least one special character (@, #, -, +, *, /).");
+        return;
+    }
 
-//     let confirm = prompt("Confirm your password:").trim();
-//     if (password !== confirm) {
-//         alert("Passwords do not match. Signup blocked.");
-//         return;
-//     }
+    let confirm = prompt("Confirm your password:").trim();
+    if (password !== confirm) {
+        alert("Passwords do not match. Signup blocked.");
+        return;
+    }
 
-//     // step3: Save database user
-//     userDataBase.push({ name, email, age, password });
-//     alert("Signup successful!");
-// }
+    // step3: Save database user
+    userDataBase.push({ name, email, age, password });
+    alert("Signup successful!");
+}
 
 
 // // step4 : create conditions of log in
