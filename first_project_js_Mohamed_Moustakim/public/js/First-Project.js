@@ -94,123 +94,123 @@ function isValidPassword(password) {
     return true;
 }
 
-function signup() {
-    let name = prompt("Enter your full name (e.g. Amhana Amine):").trim();
-    if (!isValidName(name)) {
-        alert("Invalid name. Use capital letters, no special characters, and at least 5 characters.");
-        return;
-    }
-    name = name.split(" ").map(capitalize).join(" ");
+// function signup() {
+//     let name = prompt("Enter your full name (e.g. Amhana Amine):").trim();
+//     if (!isValidName(name)) {
+//         alert("Invalid name. Use capital letters, no special characters, and at least 5 characters.");
+//         return;
+//     }
+//     name = name.split(" ").map(capitalize).join(" ");
 
-    let email = prompt("Enter your email address:").trim().toLowerCase();
-    if (!isValidEmail(email)) {
-        alert("Invalid or already used email. Must contain '@', no spaces, and be unique.");
-        return;
-    }
+//     let email = prompt("Enter your email address:").trim().toLowerCase();
+//     if (!isValidEmail(email)) {
+//         alert("Invalid or already used email. Must contain '@', no spaces, and be unique.");
+//         return;
+//     }
 
-    let age = prompt("Enter your age:").trim();
-    if (!isValidAge(age)) {
-        alert("Invalid age. Must be digits only and between 1-99.");
-        return;
-    }
+//     let age = prompt("Enter your age:").trim();
+//     if (!isValidAge(age)) {
+//         alert("Invalid age. Must be digits only and between 1-99.");
+//         return;
+//     }
 
-    let password = prompt("Create a password:").trim();
-    if (!isValidPassword(password)) {
-        alert("Invalid password. Must be at least 7 characters, no spaces, and contain at least one special character (@, #, -, +, *, /).");
-        return;
-    }
+//     let password = prompt("Create a password:").trim();
+//     if (!isValidPassword(password)) {
+//         alert("Invalid password. Must be at least 7 characters, no spaces, and contain at least one special character (@, #, -, +, *, /).");
+//         return;
+//     }
 
-    let confirm = prompt("Confirm your password:").trim();
-    if (password !== confirm) {
-        alert("Passwords do not match. Signup blocked.");
-        return;
-    }
+//     let confirm = prompt("Confirm your password:").trim();
+//     if (password !== confirm) {
+//         alert("Passwords do not match. Signup blocked.");
+//         return;
+//     }
 
-    // step3: Save database user
-    userDataBase.push({ name, email, age, password });
-    alert("Signup successful!");
-}
+//     // step3: Save database user
+//     userDataBase.push({ name, email, age, password });
+//     alert("Signup successful!");
+// }
 
 
-// step4 : create conditions of log in
-function login() {
-    let email = prompt("Enter your email:").trim().toLowerCase();
+// // step4 : create conditions of log in
+// function login() {
+//     let email = prompt("Enter your email:").trim().toLowerCase();
 
-    const user = userDataBase.find(user => user.email === email);
-    if (!user) {
-        alert("Email not found.");
-        return;
-    }
+//     const user = userDataBase.find(user => user.email === email);
+//     if (!user) {
+//         alert("Email not found.");
+//         return;
+//     }
 
-    let password = prompt("Enter your password:").trim();
-    if (user.password !== password) {
-        alert("Incorrect password.");
-        return;
-    }
+//     let password = prompt("Enter your password:").trim();
+//     if (user.password !== password) {
+//         alert("Incorrect password.");
+//         return;
+//     }
 
-    userAccount = user;
-    alert(`Login successful! Welcome, ${user.name}.`);
-}
+//     userAccount = user;
+//     alert(`Login successful! Welcome, ${user.name}.`);
+// }
 // step5 : create conditions changed password
 
 
-function changePassword() {
-    let email = prompt("Enter your registered email:").trim().toLowerCase();
-    const user = userDataBase.find(user => user.email === email);
-    if (!user) {
-        alert("Email not found.");
-        return;
-    }
+// function changePassword() {
+//     let email = prompt("Enter your registered email:").trim().toLowerCase();
+//     const user = userDataBase.find(user => user.email === email);
+//     if (!user) {
+//         alert("Email not found.");
+//         return;
+//     }
 
-    let oldPassword = prompt("Enter your current password:").trim();
-    if (user.password !== oldPassword) {
-        alert("Incorrect current password.");
-        return;
-    }
+//     let oldPassword = prompt("Enter your current password:").trim();
+//     if (user.password !== oldPassword) {
+//         alert("Incorrect current password.");
+//         return;
+//     }
 
-    let newPassword = prompt("Enter your new password:").trim();
-    if (!isValidPassword(newPassword)) {
-        alert("Invalid new password. Must be at least 7 characters, no spaces, and include one special character (@, #, -, +, *, /).");
-        return;
-    }
+//     let newPassword = prompt("Enter your new password:").trim();
+//     if (!isValidPassword(newPassword)) {
+//         alert("Invalid new password. Must be at least 7 characters, no spaces, and include one special character (@, #, -, +, *, /).");
+//         return;
+//     }
 
-    let confirmPassword = prompt("Confirm your new password:").trim();
-    if (newPassword !== confirmPassword) {
-        alert("Passwords do not match. Password change cancelled.");
-        return;
-    }
+//     let confirmPassword = prompt("Confirm your new password:").trim();
+//     if (newPassword !== confirmPassword) {
+//         alert("Passwords do not match. Password change cancelled.");
+//         return;
+//     }
 
-    user.password = newPassword;
-    alert("Password successfully changed.");
-}
+//     user.password = newPassword;
+//     alert("Password successfully changed.");
+// }
 
 
 
-function dataChoose() {
-    while (true) {
-        let action = prompt("Choose: signup / login / change-password / exit").trim().toLowerCase();
+// function dataChoose() {
+//     while (true) {
+//         let action = prompt("Choose: signup / login / change-password / exit").trim().toLowerCase();
 
-        if (action === "signup") {
-            alert("please fill the sign up form.");
-            signup();
+//         if (action === "signup") {
+//             alert("please fill the sign up form.");
+//             signup();
 
-        } else if (action === "login") {
-            alert("Login selected.");
-            login()
-        } else if (action === "change-password") {
-            alert("Change password selected.");
-            changePassword()
-        } else if (action === "exit") {
-            alert("Exiting...");
-            break;
+//         } else if (action === "login") {
+//             alert("Login selected.");
+//             login()
+//         } else if (action === "change-password") {
+//             alert("Change password selected.");
+//             changePassword()
+//         } else if (action === "exit") {
+//             alert("Exiting...");
+//             break;
 
-        } else {
-            alert("Invalid option.");
-        }
-    }
-}
+//         } else {
+//             alert("Invalid option.");
+//         }
+//     }
+// }
 
-dataChoose();
+// dataChoose();
 // step5 : After the user logs in, display the amount they have in their bank (user's choice) and offer them services:
 //             # Logout:
 //             - If the user chooses this option, they are logged out and offered the option, as at the beginning, to sign up, log in, or change the password.
