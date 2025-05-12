@@ -58,19 +58,22 @@ let userDataBase  = [];
 let userAccount = null;
 
 // step 2: create coditions to signup
-function capitalize(change) {
+function apitalize(change) {
     return change.charAt(0).toUpperCase() + change.slice(1).toLowerCase();
 }
 
-function isValidName(name) {
+function viewName(name) {
     name = name.trim();
     if (name.length < 5 || /[^a-zA-Z\s]/.test(name)) return false;
 
     const parts = name.split(" ");
-    return parts.every(part => /^[A-Z][a-z]+$/.test(capitalize(part)));
+    return parts.every(part => /^[A-Z][a-z]+$/.test(apitalize(part)));
 }
 
-function isValidEmail(email) {
+
+
+
+function viewEmail(email) {
     email = email.trim().toLowerCase();
     if (email.includes(" ") || email.length < 10) return false;
     const atSplit = email.split("@");
@@ -80,6 +83,10 @@ function isValidEmail(email) {
     return !exists;
 }
 
+
+
+
+
 function isValidAge(age) {
     age = age.trim();
     if (!/^\d+$/.test(age)) return false;
@@ -87,23 +94,30 @@ function isValidAge(age) {
     return true;
 }
 
-function isValidPassword(password) {
+
+
+
+
+function viewPassword(password) {
     password = password.trim();
     if (password.length < 7 || /\s/.test(password)) return false;
     if (!/[@#\-\+\*\/]/.test(password)) return false;
     return true;
 }
 
+
+
+
 function signup() {
     let name = prompt("Enter your full name (e.g. Amhana Amine):").trim();
-    if (!isValidName(name)) {
+    if (!viewName(name)) {
         alert("Invalid name. Use capital letters, no special characters, and at least 5 characters.");
         return;
     }
-    name = name.split(" ").map(capitalize).join(" ");
+    name = name.split(" ").map(apitalize).join(" ");
 
     let email = prompt("Enter your email address:").trim().toLowerCase();
-    if (!isValidEmail(email)) {
+    if (!viewEmail(email)) {
         alert("Invalid or already used email. Must contain '@', no spaces, and be unique.");
         return;
     }
@@ -115,7 +129,7 @@ function signup() {
     }
 
     let password = prompt("Create a password:").trim();
-    if (!isValidPassword(password)) {
+    if (!viewPassword(password)) {
         alert("Invalid password. Must be at least 7 characters, no spaces, and contain at least one special character (@, #, -, +, *, /).");
         return;
     }
@@ -132,7 +146,8 @@ function signup() {
 }
 
 
-// // step4 : create conditions of log in
+
+// step4 : create conditions of log in
 function login() {
     let email = prompt("Enter your email:").trim().toLowerCase();
 
@@ -154,58 +169,58 @@ function login() {
 // step5 : create conditions changed password
 
 
-function changePassword() {
-    let email = prompt("Enter your registered email:").trim().toLowerCase();
+function yataghayarPassword() {
+    let email = prompt("adkhul baridak al'iiliktirunia email:").trim().toLowerCase();
     const user = userDataBase.find(user => user.email === email);
     if (!user) {
-        alert("Email not found.");
+        alert("Email lam yatima aleuthur ealayh.");
         return;
     }
 
-    let oldPassword = prompt("Enter your current password:").trim();
+    let oldPassword = prompt("'adkhul alhalia alkhasa bik password:").trim();
     if (user.password !== oldPassword) {
-        alert("Incorrect current password.");
+        alert("tayaar ghayr sahih password.");
         return;
     }
 
-    let newPassword = prompt("Enter your new password:").trim();
-    if (!isValidPassword(newPassword)) {
+    let newPassword = prompt("adkhul aljadid alkhasu bik password:").trim();
+    if (!viewPassword(newPassword)) {
         alert("Invalid new password. Must be at least 7 characters, no spaces, and include one special character (@, #, -, +, *, /).");
         return;
     }
 
-    let confirmPassword = prompt("Confirm your new password:").trim();
+    let confirmPassword = prompt("takid aljadid alkhasi bik password:").trim();
     if (newPassword !== confirmPassword) {
-        alert("Passwords do not match. Password change cancelled.");
+        alert("Passwords la tatatabaqu. tama 'iilgha' taghyir kalimat almururi.");
         return;
     }
 
     user.password = newPassword;
-    alert("Password successfully changed.");
+    alert("Password tama altaghyir binajah.");
 }
 
 
 
-function dataChoose() {
+function aikhtariChoose() {
     while (true) {
-        let action = prompt("Choose: signup / login / change-password / exit").trim().toLowerCase();
+        let action = prompt("Choose: sign up / login / change-password / exit").trim().toLowerCase();
 
-        if (action === "signup") {
-            alert("please fill the sign up form.");
+        if (action === "sign up") {
+            alert("min fadlik qum bimil' namudhaj altasjili.");
             signup();
 
         } else if (action === "login") {
-            alert("Login selected.");
+            alert("tama tahdid tasjil aldukhul.");
             login()
         } else if (action === "change-password") {
-            alert("Change password selected.");
+            alert("tama tahdid taghyir kalimat almurur.");
             changePassword()
         } else if (action === "exit") {
-            alert("Exiting...");
+            alert("alkhuruj...");
             break;
 
         } else {
-            alert("Invalid option.");
+            alert("khiar ghayr salih.");
         }
     }
 }
