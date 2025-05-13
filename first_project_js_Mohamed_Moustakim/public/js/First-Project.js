@@ -225,7 +225,7 @@ function aikhtariChoose() {
     }
 }
 
-dataChoose();
+aikhtariChoose();
 
 //  *  After the user logs in, display the amount they have in their bank (user's choice) and offer them services:
 //             # Logout:
