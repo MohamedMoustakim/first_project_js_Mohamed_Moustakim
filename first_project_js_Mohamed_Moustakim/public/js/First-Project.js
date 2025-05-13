@@ -51,13 +51,13 @@
 
 
 
-// step1 : create database user
+// 1 : create database user
 
 let userDataBase  = [];
 
 let userAccount = null;
 
-// step 2: create coditions to signup
+//  2: create coditions to signup
 function apitalize(change) {
     return change.charAt(0).toUpperCase() + change.slice(1).toLowerCase();
 }
@@ -109,45 +109,45 @@ function viewPassword(password) {
 
 
 function signup() {
-    let name = prompt("Enter your full name (e.g. Amhana Amine):").trim();
+    let name = prompt("udkhul asmuk alkamil (u.a. Mohamed Moustakim):").trim();
     if (!viewName(name)) {
         alert("Invalid name. Use capital letters, no special characters, and at least 5 characters.");
         return;
     }
     name = name.split(" ").map(apitalize).join(" ");
 
-    let email = prompt("Enter your email address:").trim().toLowerCase();
+    let email = prompt("adkhul alkhasa bik email address:").trim().toLowerCase();
     if (!viewEmail(email)) {
         alert("Invalid or already used email. Must contain '@', no spaces, and be unique.");
         return;
     }
 
-    let age = prompt("Enter your age:").trim();
+    let age = prompt("adkhul alkhasa bik age:").trim();
     if (!isValidAge(age)) {
         alert("Invalid age. Must be digits only and between 1-99.");
         return;
     }
 
-    let password = prompt("Create a password:").trim();
+    let password = prompt("iinsha a password:").trim();
     if (!viewPassword(password)) {
         alert("Invalid password. Must be at least 7 characters, no spaces, and contain at least one special character (@, #, -, +, *, /).");
         return;
     }
 
-    let confirm = prompt("Confirm your password:").trim();
+    let confirm = prompt("takid alkhasi bik password:").trim();
     if (password !== confirm) {
-        alert("Passwords do not match. Signup blocked.");
+        alert("Passwords do not match. Sign up blocked.");
         return;
     }
 
-    // step3: Save database user
+    // 3: Save database user
     userDataBase.push({ name, email, age, password });
-    alert("Signup successful!");
+    alert("Sign up successful!");
 }
 
 
 
-// step4 : create conditions of log in
+// 4 : create conditions of log in
 function login() {
     let email = prompt("Enter your email:").trim().toLowerCase();
 
@@ -166,7 +166,7 @@ function login() {
     userAccount = user;
     alert(`Login successful! Welcome, ${user.name}.`);
 }
-// step5 : create conditions changed password
+// 5 : create conditions changed password
 
 
 function yataghayarPassword() {
@@ -226,7 +226,8 @@ function aikhtariChoose() {
 }
 
 dataChoose();
-// step5 : After the user logs in, display the amount they have in their bank (user's choice) and offer them services:
+
+//  *  After the user logs in, display the amount they have in their bank (user's choice) and offer them services:
 //             # Logout:
 //             - If the user chooses this option, they are logged out and offered the option, as at the beginning, to sign up, log in, or change the password.
             
