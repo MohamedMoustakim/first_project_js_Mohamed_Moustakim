@@ -55,7 +55,7 @@
 
 let userDataBase  = [];
 
-let userAccount = null;
+
 
 //  2: create coditions to signup
 function apitalize(change) {
